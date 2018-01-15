@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>My Orders</h2>
+        {{# each orders }}
+            <div class="panel panel-default">
+                <div class="col-md-18">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            {{# each this.items }}
+                                <li class="list-group-item">
+                                    <span class="badge" pull-right id="badgeOfPriceOrders">Price: {{ this.price }}</span>
+                                    <span class="badge badge-pill" pull-right id="badgeOfNumberItems" style="">Number of items: {{this.qty}}</span>
+                                    {{ this.item.title }}
+                                </li>
+                            {{/each}}
+                        </ul>
+                        <div class="panel-footer pull-right">
+                            <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,91 @@
+body {
+  font: 16px 'Lato', sans-serif;
+  background-color: rgba(255, 255, 255, 0.73);
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+} 
+
+.dropdown-menu .cart {
+  min-width: 250px;
+  padding: 15px 25px 0;
+}
+
+.dropdown-menu .cart .row > div {
+  padding: 0 0 10px 0;
+}
+
+.dropdown-menu .cart .totalPrice{
+  font-size: 120%;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#navbarWhole {
+    background-color: #4e91ff;
+    font: 600 1.5em/1 'Raleway', sans-serif;
+    border: none;
+}
+
+#shoppingQty, #faIconShopping, #menuShopping, #userIcon, #cartName, #Total {
+    color : #ffffff;
+}
+
+#navbarText {
+    font-size : 105%;
+    color : #ffffff;
+    background-color: #4e91ff;
+    border:none;
+}
+
+#search{
+  display:block;
+  text-align:center;
+}
+
+#title {
+    font-size: xx-large;
+}
+
+#priceLabel {
+    background: green;
+}
+
+.nav > li > a:hover{
+    background-color: #5873ff !important;
+}
+
+#badgeOfPriceOrders {
+    background-color: cornflowerblue;
+}
+
+#badgeOfNumberItems {
+    background-color: green;
+}
+
+#menuEmpty{
+    text-align: center;
+}
+
+#searchBox {
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 60%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#rowInShoppingCartMenu {
+    padding-top: 10px;
+    border-bottom: dashed 2px;
+}

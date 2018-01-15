@@ -1,0 +1,66 @@
+<div class="row">
+<nav class="navbar" id="navbarWhole">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="/" class="btn btn-info btn-lg" id="navbarText">
+                <span class="glyphicon glyphicon-home"></span>
+                UNIVShop
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" id="menuShopping" aria-expanded="false">
+                        Cart
+                        <i class="fa fa-shopping-cart" aria-hidden="true" id="faIconShopping"></i>
+                        {{# if session.cart.totalQty }}
+                        <span>({{session.cart.totalQty}})</span>
+                        {{/if}}
+                    </a>
+                    {{# if session.cart.totalQty }}
+                    <div class="dropdown-menu">
+                        <div class="cart">
+                            {{# each session.cart.items }}
+                            <div class="row" id="rowInShoppingCartMenu">
+                                <div class="col-xs-4">
+                                    {{ this.item.title }}
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span class="badge">{{ this.quantity }}</span>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    {{ this.price }} $
+                                </div>
+                            </div>
+                            {{/each}}
+                            <div class="row">
+                                <div class="text-right">
+                                    <div class="totalPrice">Total: {{ session.cart.totalPrice }} $</div>
+                                    <a href="/shopping-cart/" class="btn btn-success">Procceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ else }}
+                        <div class = "dropdown-menu" id="menuEmpty">
+                            Shopping cart empty
+                        </div>
+                    {{/if}}
+                </li>
+                <li class="dropdown"> <a href="#" id ="userIcon" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+                    <ul class="dropdown-menu" >
+                        {{# if login }}
+                            <li><a href="/user/profile">User Account</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        {{ else }}
+                            <li><a href="/user/signin">Sign in</a></li>
+                            <li><a href="/user/signup">Sign up</a></li>
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>

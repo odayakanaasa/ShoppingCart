@@ -1,39 +1,35 @@
-<script xmlns:border="http://www.w3.org/1999/xhtml">
+<script>
+    (function ($) {
+        jQuery.expr[':'].Contains = function(a,i,m){
+            return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+        };
 
-        (function ($) {
-            jQuery.expr[':'].Contains = function(a,i,m){
-                return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
-            };
+        function listFilter(header, list) {
+            var form = $("<form>").attr({"class":"filterform","action":"#", "id" : "search"}),
+                    input = $("<input>").attr({"class":"filterinput","id":"searchBox","type":"text", "placeholder" : "Type to search..."});
+            $(form).append(input).appendTo(header);
 
-            function listFilter(header, list) {
-                var form = $("<form>").attr({"class":"filterform","action":"#", "id" : "search"}),
-                        input = $("<input>").attr({"class":"filterinput","id":"searchBox","type":"text", "placeholder" : "Type to search..."});
-                $(form).append(input).appendTo(header);
+            $(input)
+                    .change( function () {
+                        var filter = $(this).val();
+                        if(filter) {
+                            $(list).find(".Title:not(:Contains(" + filter + "))").parent().slideUp();
+                            $(list).find(".Title:Contains(" + filter + ")").parent().slideDown();
+                        } else {
+                            $(list).find(".entry").slideDown();
+                        }
+                        return false;
+                    })
+                    .keyup( function () {
+                        $(this).change();
+                    });
+        }
 
-                $(input)
-                        .change( function () {
-                            var filter = $(this).val();
-                            if(filter) {
-                                $(list).find(".Title:not(:Contains(" + filter + "))").parent().slideUp();
-                                $(list).find(".Title:Contains(" + filter + ")").parent().slideDown();
-                            } else {
-                                $(list).find(".entry").slideDown();
-                            }
-                            return false;
-                        })
-                        .keyup( function () {
-                            $(this).change();
-                        });
-            }
-
-            $(function () {
-                listFilter($("#header"), $("#list"));
-            });
-        }(jQuery));
-
+        $(function () {
+            listFilter($("#header"), $("#list"));
+        });
+    }(jQuery));
     </script>
-
-</head>
 <body>
 <div id="wrap">
     <div class="clearfix">
@@ -41,7 +37,7 @@
     <div id = "list">
         {{# each products }}
                 {{# each this }}
-                    <div class="col-md-18">
+                    <div class="col-md-15">
                         <div class="entry">
                             <div class="Title" id ="title">{{this.title}}</div>
                             <div class="info"> {{this.description}}</div>

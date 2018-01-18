@@ -1,6 +1,6 @@
 body {
   font: 16px 'Lato', sans-serif;
-    background: #eefaff;
+    background: #ffffff;
 }
 
 * {
@@ -77,7 +77,7 @@ body {
 
 
 #loader-wrapper {
-    background: #c6ddff;
+    background: #ffffff;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -108,7 +108,7 @@ body {
 }
 
 .load :first-child {
-    background: #ffffff;
+    background: #5ea4ff;
     animation-delay: -1.5s;
 }
 

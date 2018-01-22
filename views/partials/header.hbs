@@ -50,9 +50,15 @@
                 <li class="dropdown"> <a href="#" id ="userIcon" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
                     <ul class="dropdown-menu" >
                         {{# if login }}
+                            {{# if admin }}
+                            <li><a href="/admin/adminpanel">Admin menu</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/admin/logout">Logout</a></li>
+                            {{ else }}
                             <li><a href="/user/profile">User Account</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/user/logout">Logout</a></li>
+                            {{/if}}
                         {{ else }}
                             <li><a href="/user/signin">Sign in</a></li>
                             <li><a href="/user/signup">Sign up</a></li>

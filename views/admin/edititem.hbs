@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Edit item</h2>
+            <div class="panel panel-default">
+                <div class="col-md-18">
+                    <div class="panel-body">
+                        <form action="/admin/edititem/{{ id }}" method="post">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input class="form-control input-lg" type="text" id="titleEdit" name="title" value="{{ title }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label><br>
+                                <textarea name="description" id="descriptionEdit" cols="80" rows="10">{{ description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" id="price" name="price" class="form-control" value="{{ price }}">
+                            </div>
+                            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

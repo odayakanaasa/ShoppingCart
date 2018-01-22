@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Add new item</h2>
+            <div class="panel panel-default">
+                <div class="col-md-18">
+                    <div class="panel-body">
+                        <form action="/admin/additem" method="post">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label><br>
+                                <textarea name="description" id="description" cols="80" rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" id="price" name="price" class="form-control">
+                            </div>
+                            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ let MongoStore = require('connect-mongo')(session);
 
 let routes = require('./routes/index');
 let userRoutes = require('./routes/user');
+let adminRoutes = require('./routes/admin');
 
 let app = express();
 mongoose.Promise = global.Promise;
@@ -42,10 +43,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res, next) {
     res.locals.login = req.isAuthenticated();
     res.locals.session = req.session;
+    console.log(res.locals.login);
+    if (req.user)
+      res.locals.admin = req.user.isAdmin;
+    else
+      res.locals.admin = false;
     next();
 });
 
 app.use('/user', userRoutes);
+app.use('/admin', adminRoutes);
 app.use('/', routes);
 
 app.use(function(req, res, next) {

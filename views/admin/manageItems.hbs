@@ -34,6 +34,11 @@
 <div id="wrap">
     <div class="clearfix">
     <h2 id="header"></h2>
+    <div class ="container text-center">
+        <div class="badge badge-info " id="totalUsers">
+            <h5>Items in total: {{length}} </h5>
+        </div>
+    </div>
     <div id = "list">
         {{# each products }}
                 {{# each this }}
@@ -43,7 +48,8 @@
                             <div class="info"> {{this.description}}</div>
                             <div class="clearfix">
                                 <h5><a class="badge badge-success pull-left"  id="priceLabel"> $ {{ this.price }}</a></h5>
-                                <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+                                <a href="/admin/removeitem/{{this._id}}" class="btn btn-success pull-right" role="button">Remove</a>
+                                <a href="/admin/edititem/{{this._id}}" class="btn btn-success pull-right" role="button">Edit</a>
                             </div>
                         </div>
                     </div>

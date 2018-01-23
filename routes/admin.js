@@ -130,7 +130,7 @@ router.post('/signin', passport.authenticate('local.signin', {
         req.session.oldUrl = null;
         res.redirect(oldUrl);
     } else {
-        res.redirect('/admin/adminpanel');
+        res.redirect('/admin/panel'); 
     }
 });
 

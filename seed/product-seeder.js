@@ -60,7 +60,7 @@ let products = [
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:admin@ds251807.mlab.com:51807/weppo-shop', { useMongoClient: true });
+mongoose.connect('mongodb://<username>:<password>@ds251807.mlab.com:51807/weppo-shop', { useMongoClient: true });
 
 let done = 0;
 for (let i = 0; i < products.length; i++) {

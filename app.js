@@ -17,7 +17,7 @@ let adminRoutes = require('./routes/admin');
 
 let app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://admin:admin@ds251807.mlab.com:51807/weppo-shop', { useMongoClient: true });
+mongoose.connect('mongodb://<username>:<password>@ds251807.mlab.com:51807/weppo-shop', { useMongoClient: true });
 require('./config/passport');
 
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));

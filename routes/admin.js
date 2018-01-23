@@ -23,7 +23,7 @@ router.get('/manageitems', isAdminLoggedIn, function (req, res, next) {
         for (let i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
-        res.render('admin/manageitems', {title: 'Shopping Cart', products: productChunks, length : docs.length});
+        res.render('admin/manageItems', {title: 'Shopping Cart', products: productChunks, length : docs.length});
     });
 });
 
@@ -103,7 +103,7 @@ router.get('/orderslist', isAdminLoggedIn, function (req, res, next) {
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
         });
-        res.render('admin/orderslist', { orders: orders, length : orders.length});
+        res.render('admin/ordersList', { orders: orders, length : orders.length});
     });
 });
 
